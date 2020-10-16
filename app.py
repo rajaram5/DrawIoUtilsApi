@@ -13,8 +13,6 @@ api = Api(app,
           contact='Rajaram Kaliyaperumal',
           contact_url='https://www.linkedin.com/in/rajaram-kaliyaperumal-73677115')
 
-app.config['UPLOAD_FOLDER'] = 'api-uploads/'
-
 name_space = api.namespace('draw-io-utils', description='APIs to create RDF drawing from turtle file')
 
 upload_parser = api.parser()
@@ -51,9 +49,9 @@ class DrawIoCsv(Resource):
 
         if file and self.allowed_file(file.filename):
             filename = file.filename
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            file.save(os.path.join(filename))
 
-            input_file = app.config['UPLOAD_FOLDER'] + filename
+            input_file = filename
 
             draw_io_text = self.DRAW_IO_INSTANCE.get_draw_io_csv(input_file)
             f = open("output/draw-io-output.csv", "w")
