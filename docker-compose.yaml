@@ -1,0 +1,7 @@
+version: "3.4"
+services:
+  # Create draw-io-utils service
+  draw-io-utils:
+    build: .
+    ports:
+      - "5000:5000"

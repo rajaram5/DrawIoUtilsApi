@@ -9,19 +9,19 @@
 # levelspacing: 100
 # edgespacing: 40
 # layout: auto
-# connect: {"to": "id", "invert": true, "style":"curved=0;endArrow=blockThin;endFill=1;", "from": "sio_isrealizedin", "label": "sio:is realized in" }
+# connect: {"to": "id", "invert": true, "style":"curved=0;endArrow=blockThin;endFill=1;", "from": "sio_hasoutput", "label": "sio:has output" }
+# connect: {"to": "id", "invert": true, "style":"curved=0;endArrow=blockThin;endFill=1;", "from": "sio_hasrole", "label": "sio:has role" }
 # connect: {"to": "id", "invert": true, "style":"curved=0;endArrow=blockThin;endFill=1;", "from": "rdf_type", "label": "rdf:type" }
 # connect: {"to": "id", "invert": true, "style":"curved=0;endArrow=blockThin;endFill=1;", "from": "dc_date", "label": "dc:date" }
-# connect: {"to": "id", "invert": true, "style":"curved=0;endArrow=blockThin;endFill=1;", "from": "sio_hasrole", "label": "sio:has role" }
-# connect: {"to": "id", "invert": true, "style":"curved=0;endArrow=blockThin;endFill=1;", "from": "sio_hasoutput", "label": "sio:has output" }
-id,name,fill,stroke,shape,sio_isrealizedin,rdf_type,dc_date,sio_hasrole,sio_hasoutput
-http://purl.org/ejp-rd/cde/v020/example-rdf/role3,role3,#FFE6CC,#000000,rhombus,"NA","NA","NA","http://purl.org/ejp-rd/cde/v020/example-rdf/person1","NA"
-http://purl.org/ejp-rd/cde/v020/example-rdf/medicalDiagnosisProcess,medicalDiagnosisProcess,#FFE6CC,#000000,rhombus,"http://purl.org/ejp-rd/cde/v020/example-rdf/role3","NA","NA","NA","NA"
-http://semanticscience.org/resource/SIO_001001,sio:medical diagnosis,#d5e8d4,#000000,rounded,"NA","http://purl.org/ejp-rd/cde/v020/example-rdf/medicalDiagnosisProcess","NA","NA","NA"
+# connect: {"to": "id", "invert": true, "style":"curved=0;endArrow=blockThin;endFill=1;", "from": "sio_isrealizedin", "label": "sio:is realized in" }
+id,name,fill,stroke,shape,sio_hasoutput,sio_hasrole,rdf_type,dc_date,sio_isrealizedin
+http://purl.org/ejp-rd/cde/v020/example-rdf/medicalDiagnosisProcess,medicalDiagnosisProcess,#FFE6CC,#000000,rhombus,"NA","NA","NA","NA","http://purl.org/ejp-rd/cde/v020/example-rdf/role3"
+http://purl.org/ejp-rd/cde/v020/example-rdf/SQDiagnosis,SQDiagnosis,#FFE6CC,#000000,rhombus,"http://purl.org/ejp-rd/cde/v020/example-rdf/medicalDiagnosisProcess","NA","NA","NA","NA"
 http://purl.org/ejp-rd/cde/v020/example-rdf/person1,person1,#FFE6CC,#000000,rhombus,"NA","NA","NA","NA","NA"
-http://purl.obolibrary.org/obo/NCBITaxon_9606,obo:Homo sapiens,#d5e8d4,#000000,rounded,"NA","http://purl.org/ejp-rd/cde/v020/example-rdf/person1","NA","NA","NA"
-2020-01-31T12:00:00,2020-01-31T12:00:00,#DAE8FC,#000000,ellipse,"NA","NA","http://purl.org/ejp-rd/cde/v020/example-rdf/medicalDiagnosisProcess","NA","NA"
-http://purl.org/ejp-rd/cde/v020/example-rdf/SQDiagnosis,SQDiagnosis,#FFE6CC,#000000,rhombus,"NA","NA","NA","NA","http://purl.org/ejp-rd/cde/v020/example-rdf/medicalDiagnosisProcess"
-http://semanticscience.org/resource/SIO_000340,sio:realizable entity,#d5e8d4,#000000,rounded,"NA","http://purl.org/ejp-rd/cde/v020/example-rdf/SQDiagnosis","NA","NA","NA"
-http://www.orpha.net/ORDO/Orphanet_586,ordo:Cystic fibrosis,#d5e8d4,#000000,rounded,"NA","http://purl.org/ejp-rd/cde/v020/example-rdf/SQDiagnosis","NA","NA","NA"
-http://purl.obolibrary.org/obo/OBI_0000093,obo:patient role,#d5e8d4,#000000,rounded,"NA","http://purl.org/ejp-rd/cde/v020/example-rdf/role3","NA","NA","NA"
+http://purl.org/ejp-rd/cde/v020/example-rdf/role3,role3,#FFE6CC,#000000,rhombus,"NA","http://purl.org/ejp-rd/cde/v020/example-rdf/person1","NA","NA","NA"
+http://purl.obolibrary.org/obo/NCBITaxon_9606,obo:Homo sapiens,#d5e8d4,#000000,rounded,"NA","NA","http://purl.org/ejp-rd/cde/v020/example-rdf/person1","NA","NA"
+http://semanticscience.org/resource/SIO_000340,sio:realizable entity,#d5e8d4,#000000,rounded,"NA","NA","http://purl.org/ejp-rd/cde/v020/example-rdf/SQDiagnosis","NA","NA"
+http://semanticscience.org/resource/SIO_001001,sio:medical diagnosis,#d5e8d4,#000000,rounded,"NA","NA","http://purl.org/ejp-rd/cde/v020/example-rdf/medicalDiagnosisProcess","NA","NA"
+http://www.orpha.net/ORDO/Orphanet_586,ordo:Cystic fibrosis,#d5e8d4,#000000,rounded,"NA","NA","http://purl.org/ejp-rd/cde/v020/example-rdf/SQDiagnosis","NA","NA"
+2020-01-31T12:00:00,2020-01-31T12:00:00,#DAE8FC,#000000,ellipse,"NA","NA","NA","http://purl.org/ejp-rd/cde/v020/example-rdf/medicalDiagnosisProcess","NA"
+http://purl.obolibrary.org/obo/OBI_0000093,obo:patient role,#d5e8d4,#000000,rounded,"NA","NA","http://purl.org/ejp-rd/cde/v020/example-rdf/role3","NA","NA"

@@ -1,6 +1,6 @@
 from flask import Flask, request, Response
 from werkzeug.datastructures import FileStorage
-import CreateRdfDrawing
+import RdfDrawing
 import os
 from flask_restplus import Resource, Api
 
@@ -25,7 +25,7 @@ upload_parser.add_argument('file', location='files', type=FileStorage)
 class DrawIoCsv(Resource):
     ALLOWED_EXTENSIONS = {'ttl'}
 
-    DRAW_IO_INSTANCE = CreateRdfDrawing.CreateRdfDrawing()
+    DRAW_IO_INSTANCE = RdfDrawing.RdfDrawing()
 
     @api.response(200, 'Draw.io CSV successfully created.')
     @api.response(422, 'Invalid input')
