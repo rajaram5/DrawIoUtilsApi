@@ -1,0 +1,6 @@
+rdflib
+SPARQLWrapper
+requests
+flask
+flask_restplus
+Werkzeug==0.16.1

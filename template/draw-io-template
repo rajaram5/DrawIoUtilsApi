@@ -1,0 +1,11 @@
+# label: %name%
+# style: shape=%shape%;fillColor=%fill%;strokeColor=%stroke%;
+# namespace: csvimport-
+# width: auto
+# height: auto
+# padding: 15
+# ignore: id,shape,fill,stroke,refs
+# nodespacing: 40
+# levelspacing: 100
+# edgespacing: 40
+# layout: auto

@@ -1,0 +1,96 @@
+from SPARQLWrapper import SPARQLWrapper, JSON
+from rdflib.plugins.sparql import prepareQuery
+import requests
+import json
+import hashlib
+
+
+class Utils:
+
+    ONTOBEE_ENDPOINT = "http://sparql.hegroup.org/sparql"
+
+    PREFIX_CC_ENPOINT = "http://prefix.cc/reverse"
+
+    PREFIXS = {}
+
+
+    def get_label_from_ontobee(self, uri):
+
+        sparql = SPARQLWrapper(self.ONTOBEE_ENDPOINT)
+        # Get label query
+        query = open('queries/get_label.rq', 'r').read()
+
+        query = query.replace("URI", uri)
+        sparql.setQuery(query)
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+
+        for result in results["results"]["bindings"]:
+            if result["label"]["value"]:
+                label = str(result["label"]["value"])
+                #print(label)
+                if label:
+                    return label
+
+    def is_uri_instance(self, graph, url):
+
+        # Query to get instance type
+        query = open('queries/get_type_of_instance.rq', 'r').read()
+        q = prepareQuery(query)
+
+        for row in graph.query(q, initBindings={'ins': url}):
+            if row[0]:
+                return True
+            else:
+                return False
+
+
+    def clean_label(self, label):
+
+        label = label.replace(" ", "")
+        label = label.replace("-", "_")
+        label = label.replace(":", "_")
+        return label
+
+
+    def get_suffix(self, url):
+
+        sufffix = url.split("/")[-1]
+
+        if not sufffix:
+            sufffix = url.split("#")[-1]
+
+        if '#' in sufffix:
+            sufffix = sufffix.split("#")[-1]
+
+        return sufffix
+
+    def get_prefix(self, text, suffix):
+
+        print("Getting prefix for " + text)
+
+        prefix_url = text[:-len(suffix)]
+
+        if prefix_url not in self.PREFIXS:
+            payload = {'uri': prefix_url, 'format': 'json'}
+
+            #url = self.PREFIX_CC_ENPOINT + "?uri=" + prefix_url + "?format=json"
+            r = requests.get(self.PREFIX_CC_ENPOINT, params=payload)
+
+            if r.status_code == requests.codes.ok:
+                data = json.loads(r.text)
+                for key, value in data.items():
+                    return key
+            else:
+                hash = hashlib.sha1(prefix_url.encode("UTF-8")).hexdigest()
+                value = hash[:6]
+                return value
+
+        else:
+            return self.PREFIXS[prefix_url]
+
+
+
+
+
+
