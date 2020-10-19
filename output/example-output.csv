@@ -1,0 +1,25 @@
+# label: %name%
+# style: shape=%shape%;fillColor=%fill%;strokeColor=%stroke%;
+# namespace: csvimport-
+# width: auto
+# height: auto
+# padding: 15
+# ignore: id,shape,fill,stroke,refs
+# nodespacing: 40
+# levelspacing: 100
+# edgespacing: 40
+# layout: auto
+# connect: {"to": "id", "invert": true, "style":"curved=0;endArrow=blockThin;endFill=1;", "from": "rdftype", "label": "rdf:type" }
+# connect: {"to": "id", "invert": true, "style":"curved=0;endArrow=blockThin;endFill=1;", "from": "df899hostInstituition", "label": "4df899:hostInstituition" }
+# connect: {"to": "id", "invert": true, "style":"curved=0;endArrow=blockThin;endFill=1;", "from": "dcResourceIdentifier", "label": "dc:Resource Identifier" }
+# connect: {"to": "id", "invert": true, "style":"curved=0;endArrow=blockThin;endFill=1;", "from": "siocity", "label": "sio:city" }
+# connect: {"to": "id", "invert": true, "style":"curved=0;endArrow=blockThin;endFill=1;", "from": "sioname", "label": "sio:name" }
+# connect: {"to": "id", "invert": true, "style":"curved=0;endArrow=blockThin;endFill=1;", "from": "siocountry", "label": "sio:country" }
+id,name,fill,stroke,shape,rdftype,df899hostInstituition,dcResourceIdentifier,siocity,sioname,siocountry
+https://www.ejprarediseases.org/metadata/1,1,#FFE6CC,#000000,rhombus,"NA","NA","NA","NA","NA","NA"
+http://purl.org/ejp-rd/vocabulary/BioBank,5ab344:BioBank,#d5e8d4,#000000,rounded,"https://www.ejprarediseases.org/metadata/1","NA","NA","NA","NA","NA"
+LUMC,LUMC,#DAE8FC,#000000,ellipse,"NA","https://www.ejprarediseases.org/metadata/1","NA","NA","NA","NA"
+4527884,4527884,#DAE8FC,#000000,ellipse,"NA","NA","https://www.ejprarediseases.org/metadata/1","NA","NA","NA"
+Leiden,Leiden,#DAE8FC,#000000,ellipse,"NA","NA","NA","https://www.ejprarediseases.org/metadata/1","NA","NA"
+Biobank for DMD sample,Biobank for DMD sample,#DAE8FC,#000000,ellipse,"NA","NA","NA","NA","https://www.ejprarediseases.org/metadata/1","NA"
+The Netherlands,The Netherlands,#DAE8FC,#000000,ellipse,"NA","NA","NA","NA","NA","https://www.ejprarediseases.org/metadata/1"
