@@ -4,3 +4,5 @@
 __pycache__/
 
 venv/
+
+output/draw-io-output.csv
