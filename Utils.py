@@ -3,6 +3,7 @@ from rdflib.plugins.sparql import prepareQuery
 import requests
 import json
 import hashlib
+from string import digits
 
 '''
 This class contains some utils methods
@@ -100,7 +101,9 @@ class Utils:
                     return key
             else:
                 hash = hashlib.sha1(prefix_url.encode("UTF-8")).hexdigest()
-                value = hash[:6]
+                remove_digits = str.maketrans('', '', digits)
+                hash_without_numbers = hash.translate(remove_digits)
+                value = hash_without_numbers[:6]
                 return value
         else:
             return self.PREFIXS[prefix_url]
