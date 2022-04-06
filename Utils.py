@@ -4,6 +4,7 @@ import requests
 import json
 import hashlib
 from string import digits
+import logging
 
 '''
 This class contains some utils methods
@@ -27,13 +28,16 @@ class Utils:
         query = query.replace("URI", uri)
         sparql.setQuery(query)
         sparql.setReturnFormat(JSON)
-        results = sparql.query().convert()
-
-        for result in results["results"]["bindings"]:
-            if result["label"]["value"]:
-                label = str(result["label"]["value"])
-                if label:
-                    return label
+        try:
+            results = sparql.query().convert()
+            for result in results["results"]["bindings"]:
+                if result["label"]["value"]:
+                    label = str(result["label"]["value"])
+                    if label:
+                        return label
+        except:
+            logging.error("Issue with ontobee SPARQL endpoint")
+            return None
 
     def is_uri_instance(self, graph, url):
         '''

@@ -5,6 +5,7 @@ from rdflib.plugins.sparql import prepareQuery
 import RDFNode as rdfnode
 import Utils as Utils
 import DrawIOUtils as DrawIOUtils
+import logging
 
 '''
 This class contains methods to create draw.io schema
@@ -47,7 +48,7 @@ class RdfDrawing:
         for row in self.GRAPH.query(q):
             url = row[0]
             if url == RDFS.label and self.SKIP_RDF_LABEL:
-                print("skiping rdfs:label")
+                logging.info("skiping rdfs:label")
             else:
                 predicate_label = self.__get_labels(url, True)
                 connect_text = self.DRAW_IO_UTILS.get_connection_text(predicate_label)
@@ -101,7 +102,7 @@ class RdfDrawing:
                 nodes[sub] = rnd
 
             if pre == RDFS.label and self.SKIP_RDF_LABEL:
-                print("skiping rdfs:label")
+                logging.info("skiping rdfs:label")
             elif obj not in nodes:
                 if not isinstance(obj, Literal):
                     obj_label = self.__get_labels(obj, True)
@@ -142,7 +143,7 @@ class RdfDrawing:
                                       obj_shape)
                 nodes[obj] = rnd
 
-        print("Num of nodes " + str(len(nodes)))
+        logging.info("Num of nodes " + str(len(nodes)))
 
         for key in nodes:
             node = nodes[key]
