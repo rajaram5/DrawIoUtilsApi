@@ -1,6 +1,8 @@
 rdflib
 SPARQLWrapper
 requests
-flask
-flask_restplus
+flask==1.1.4
+flask_restplus==0.13.0
 Werkzeug==0.16.1
+#Jinja2==2.11.2
+markupsafe==2.0.1
